@@ -1,0 +1,23 @@
+{
+ "inicio": "2026-11-04 16:55:28",
+ "terminado": true,
+ "configs_terminadas": [
+  "db3_otsu",
+  "db3_sin"
+ ],
+ "etapa": "terminado",
+ "actualizado": "2026-11-04 16:55:48",
+ "avance_pct": 100.0,
+ "transcurrido_min": 0.3,
+ "restante_min_aprox": 0.0,
+ "verificacion": {
+  "iou_global_nuevo": 0.45227704566349985
+ },
+ "config_actual": null,
+ "detalle": "",
+ "ultimo": {
+  "config": "db3_sin",
+  "semilla": 0,
+  "iou_global_valid": 0.0
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "inicio": "2026-11-04 18:26:17",
+ "terminado": true,
+ "configs_terminadas": [
+  "lora_vhdb3_otsu",
+  "lora_db3_otsu",
+  "lora_vhdb3_sin"
+ ],
+ "etapa": "terminado",
+ "actualizado": "2026-11-04 18:27:03",
+ "avance_pct": 100.0,
+ "transcurrido_min": 0.8,
+ "restante_min_aprox": 0.0,
+ "verificacion": {
+  "iou_global_nuevo": 0.4168355865780645,
+  "iou_global_h2": 0.46844701756716195,
+  "diferencia": -0.05161143098909743
+ },
+ "detalle": "",
+ "config_actual": null,
+ "ultimo": {
+  "config": "lora_vhdb3_sin",
+  "semilla": 0,
+  "iou_global_valid": 0.0,
+  "iou_global_valid_tta": 0.0
+ }
+}

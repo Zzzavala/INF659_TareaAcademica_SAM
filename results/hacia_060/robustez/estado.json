@@ -1,0 +1,18 @@
+{
+ "inicio": "2026-11-05 15:13:28",
+ "terminado": true,
+ "configs_terminadas": [],
+ "etapa": "terminado",
+ "actualizado": "2026-11-05 16:10:19",
+ "avance_pct": 99.5,
+ "transcurrido_min": 56.8,
+ "restante_min_aprox": 0.3,
+ "config_actual": "unet_db3",
+ "detalle": "semilla 4, evaluando",
+ "ultimo": {
+  "config": "unet_db3",
+  "semilla": 4,
+  "iou_global_valid": 0.6316,
+  "iou_global_valid_tta": 0.6329
+ }
+}

@@ -1,0 +1,30 @@
+{
+ "inicio": "2026-11-04 16:56:12",
+ "terminado": true,
+ "configs_terminadas": [
+  "db3_otsu",
+  "db3_sin",
+  "vhdb3_otsu",
+  "vhdb3_sin",
+  "vh3_otsu",
+  "vh3_sin"
+ ],
+ "etapa": "terminado",
+ "actualizado": "2026-11-04 18:09:59",
+ "avance_pct": 100.0,
+ "transcurrido_min": 73.8,
+ "restante_min_aprox": 0.0,
+ "verificacion": {
+  "iou_global_nuevo": 0.4684451962414922,
+  "iou_global_h2": 0.46844701756716195,
+  "diferencia": -1.8213256697263702e-06,
+  "max_dif_pixeles_por_chip": 8
+ },
+ "config_actual": null,
+ "detalle": "",
+ "ultimo": {
+  "config": "vh3_sin",
+  "semilla": 2,
+  "iou_global_valid": 0.3986
+ }
+}

@@ -1,0 +1,140 @@
+{
+ "config": "lora_vhdb3_sin",
+ "rep": "vhdb3",
+ "prompts": "sin",
+ "semilla": 0,
+ "entrenamiento": {
+  "historial": [
+   {
+    "epoca": 1,
+    "perdida_media": 1.449884295463562,
+    "iou_entrenamiento": 0.004980726247934955,
+    "lr_final": 0.0001,
+    "seg_epoca": 2.1924962997436523
+   }
+  ],
+  "n_chips_entrenamiento": 8,
+  "minutos": 0.036577928066253665,
+  "params_entrenables": 4353252
+ },
+ "valid": {
+  "individual": {
+   "agregado": {
+    "n_chips": 6,
+    "global_iou": 0.0,
+    "mean_chip_iou": 0.0,
+    "median_chip_iou": 0.0,
+    "precision": null,
+    "recall": 0.0,
+    "f1": 0.0,
+    "iou_undefined": 3,
+    "tp": 0,
+    "fp": 0,
+    "fn": 156707
+   },
+   "por_chip": [
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 0,
+     "fn": 8697,
+     "union": 8697
+    },
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 0,
+     "fn": 144051,
+     "union": 144051
+    },
+    {
+     "iou": null,
+     "tp": 0,
+     "fp": 0,
+     "fn": 0,
+     "union": 0
+    },
+    {
+     "iou": null,
+     "tp": 0,
+     "fp": 0,
+     "fn": 0,
+     "union": 0
+    },
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 0,
+     "fn": 3959,
+     "union": 3959
+    },
+    {
+     "iou": null,
+     "tp": 0,
+     "fp": 0,
+     "fn": 0,
+     "union": 0
+    }
+   ]
+  },
+  "tta": {
+   "agregado": {
+    "n_chips": 6,
+    "global_iou": 0.0,
+    "mean_chip_iou": 0.0,
+    "median_chip_iou": 0.0,
+    "precision": null,
+    "recall": 0.0,
+    "f1": 0.0,
+    "iou_undefined": 3,
+    "tp": 0,
+    "fp": 0,
+    "fn": 156707
+   },
+   "por_chip": [
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 0,
+     "fn": 8697,
+     "union": 8697
+    },
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 0,
+     "fn": 144051,
+     "union": 144051
+    },
+    {
+     "iou": null,
+     "tp": 0,
+     "fp": 0,
+     "fn": 0,
+     "union": 0
+    },
+    {
+     "iou": null,
+     "tp": 0,
+     "fp": 0,
+     "fn": 0,
+     "union": 0
+    },
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 0,
+     "fn": 3959,
+     "union": 3959
+    },
+    {
+     "iou": null,
+     "tp": 0,
+     "fp": 0,
+     "fn": 0,
+     "union": 0
+    }
+   ]
+  }
+ }
+}

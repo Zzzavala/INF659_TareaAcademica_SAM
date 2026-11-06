@@ -1,0 +1,162 @@
+{
+ "config": "lora_vhdb3_sin",
+ "rep": "vhdb3",
+ "prompts": "sin",
+ "semillas": [
+  0
+ ],
+ "protocolo": {
+  "lora_r": 8,
+  "lora_alpha": 16,
+  "epocas": 1,
+  "calentamiento": 1,
+  "lr": 0.0001,
+  "wd": 0.01,
+  "lote": 4,
+  "umbral": 0.5,
+  "aumentos": "D4 al azar por muestra",
+  "perdida": "BCE + Dice"
+ },
+ "ensamble": {
+  "individual": {
+   "agregado": {
+    "n_chips": 6,
+    "global_iou": 0.0,
+    "mean_chip_iou": 0.0,
+    "median_chip_iou": 0.0,
+    "precision": null,
+    "recall": 0.0,
+    "f1": 0.0,
+    "iou_undefined": 3,
+    "tp": 0,
+    "fp": 0,
+    "fn": 156707
+   },
+   "por_chip": [
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 0,
+     "fn": 8697,
+     "union": 8697
+    },
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 0,
+     "fn": 144051,
+     "union": 144051
+    },
+    {
+     "iou": null,
+     "tp": 0,
+     "fp": 0,
+     "fn": 0,
+     "union": 0
+    },
+    {
+     "iou": null,
+     "tp": 0,
+     "fp": 0,
+     "fn": 0,
+     "union": 0
+    },
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 0,
+     "fn": 3959,
+     "union": 3959
+    },
+    {
+     "iou": null,
+     "tp": 0,
+     "fp": 0,
+     "fn": 0,
+     "union": 0
+    }
+   ]
+  },
+  "tta": {
+   "agregado": {
+    "n_chips": 6,
+    "global_iou": 0.0,
+    "mean_chip_iou": 0.0,
+    "median_chip_iou": 0.0,
+    "precision": null,
+    "recall": 0.0,
+    "f1": 0.0,
+    "iou_undefined": 3,
+    "tp": 0,
+    "fp": 0,
+    "fn": 156707
+   },
+   "por_chip": [
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 0,
+     "fn": 8697,
+     "union": 8697
+    },
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 0,
+     "fn": 144051,
+     "union": 144051
+    },
+    {
+     "iou": null,
+     "tp": 0,
+     "fp": 0,
+     "fn": 0,
+     "union": 0
+    },
+    {
+     "iou": null,
+     "tp": 0,
+     "fp": 0,
+     "fn": 0,
+     "union": 0
+    },
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 0,
+     "fn": 3959,
+     "union": 3959
+    },
+    {
+     "iou": null,
+     "tp": 0,
+     "fp": 0,
+     "fn": 0,
+     "union": 0
+    }
+   ]
+  }
+ },
+ "chips_valid": [
+  "Ghana_895194",
+  "Ghana_868803",
+  "Ghana_142312",
+  "Ghana_132163",
+  "Ghana_495107",
+  "Ghana_124834"
+ ],
+ "semillas_individual": {
+  "media": 0.0,
+  "desv": 0.0,
+  "min": 0.0,
+  "max": 0.0,
+  "n": 1
+ },
+ "semillas_tta": {
+  "media": 0.0,
+  "desv": 0.0,
+  "min": 0.0,
+  "max": 0.0,
+  "n": 1
+ }
+}

@@ -1,0 +1,176 @@
+{
+ "config": "unet_db3",
+ "definicion": {
+  "tipo": "unet",
+  "rep": "db3",
+  "prompts": "sin",
+  "paso": "3a",
+  "que": "U-Net desde cero (base 32), [VV, VH, VV−VH] con rango fijo, BCE + Dice"
+ },
+ "semillas": [
+  0
+ ],
+ "protocolo": {
+  "unet": {
+   "base": 32,
+   "epocas": 2,
+   "calentamiento": 2,
+   "lr": 0.001,
+   "wd": 0.0001,
+   "lote": 8,
+   "perdida": "BCE + Dice"
+  },
+  "lora": {
+   "r": 8,
+   "alpha": 16,
+   "epocas": 1,
+   "lr": 0.0001,
+   "lote": 4,
+   "perdida": "BCE + Tversky (a 0.3, b 0.7)"
+  },
+  "umbral": 0.5,
+  "aumentos": "D4 al azar por muestra"
+ },
+ "ensamble": {
+  "individual": {
+   "agregado": {
+    "n_chips": 6,
+    "global_iou": 0.11547681245177935,
+    "mean_chip_iou": 0.09983813817605748,
+    "median_chip_iou": 0.0075511932373046875,
+    "precision": 0.11547681245177935,
+    "recall": 1.0,
+    "f1": 0.20704475639966968,
+    "iou_undefined": 0,
+    "tp": 156707,
+    "fp": 1200336,
+    "fn": 0
+   },
+   "por_chip": [
+    {
+     "iou": 0.03441548677118866,
+     "tp": 8697,
+     "fp": 244009,
+     "fn": 0,
+     "union": 252706
+    },
+    {
+     "iou": 0.5495109558105469,
+     "tp": 144051,
+     "fp": 118093,
+     "fn": 0,
+     "union": 262144
+    },
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 262144,
+     "fn": 0,
+     "union": 262144
+    },
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 55761,
+     "fn": 0,
+     "union": 55761
+    },
+    {
+     "iou": 0.015102386474609375,
+     "tp": 3959,
+     "fp": 258185,
+     "fn": 0,
+     "union": 262144
+    },
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 262144,
+     "fn": 0,
+     "union": 262144
+    }
+   ]
+  },
+  "tta": {
+   "agregado": {
+    "n_chips": 6,
+    "global_iou": 0.11547681245177935,
+    "mean_chip_iou": 0.09983813817605748,
+    "median_chip_iou": 0.0075511932373046875,
+    "precision": 0.11547681245177935,
+    "recall": 1.0,
+    "f1": 0.20704475639966968,
+    "iou_undefined": 0,
+    "tp": 156707,
+    "fp": 1200336,
+    "fn": 0
+   },
+   "por_chip": [
+    {
+     "iou": 0.03441548677118866,
+     "tp": 8697,
+     "fp": 244009,
+     "fn": 0,
+     "union": 252706
+    },
+    {
+     "iou": 0.5495109558105469,
+     "tp": 144051,
+     "fp": 118093,
+     "fn": 0,
+     "union": 262144
+    },
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 262144,
+     "fn": 0,
+     "union": 262144
+    },
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 55761,
+     "fn": 0,
+     "union": 55761
+    },
+    {
+     "iou": 0.015102386474609375,
+     "tp": 3959,
+     "fp": 258185,
+     "fn": 0,
+     "union": 262144
+    },
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 262144,
+     "fn": 0,
+     "union": 262144
+    }
+   ]
+  }
+ },
+ "chips_valid": [
+  "Ghana_895194",
+  "Ghana_868803",
+  "Ghana_142312",
+  "Ghana_132163",
+  "Ghana_495107",
+  "Ghana_124834"
+ ],
+ "semillas_individual": {
+  "media": 0.11547681245177935,
+  "desv": 0.0,
+  "min": 0.11547681245177935,
+  "max": 0.11547681245177935,
+  "n": 1
+ },
+ "semillas_tta": {
+  "media": 0.11547681245177935,
+  "desv": 0.0,
+  "min": 0.11547681245177935,
+  "max": 0.11547681245177935,
+  "n": 1
+ }
+}

@@ -1,0 +1,152 @@
+{
+ "config": "unet_db3",
+ "definicion": {
+  "tipo": "unet",
+  "rep": "db3",
+  "prompts": "sin",
+  "paso": "3a",
+  "que": "U-Net desde cero (base 32), [VV, VH, VV−VH] con rango fijo, BCE + Dice"
+ },
+ "semilla": 0,
+ "entrenamiento": {
+  "historial": [
+   {
+    "epoca": 1,
+    "perdida_media": 1.8544684648513794,
+    "iou_entrenamiento": 0.025861352961393056,
+    "lr_final": 0.00075,
+    "seg_epoca": 21.64455819129944
+   },
+   {
+    "epoca": 2,
+    "perdida_media": 1.7812289595603943,
+    "iou_entrenamiento": 0.03234813575655573,
+    "lr_final": 0.001,
+    "seg_epoca": 0.4084153175354004
+   }
+  ],
+  "n_chips_entrenamiento": 16,
+  "minutos": 0.36757094065348306,
+  "params_entrenables": 7763041
+ },
+ "valid": {
+  "individual": {
+   "agregado": {
+    "n_chips": 6,
+    "global_iou": 0.11547681245177935,
+    "mean_chip_iou": 0.09983813817605748,
+    "median_chip_iou": 0.0075511932373046875,
+    "precision": 0.11547681245177935,
+    "recall": 1.0,
+    "f1": 0.20704475639966968,
+    "iou_undefined": 0,
+    "tp": 156707,
+    "fp": 1200336,
+    "fn": 0
+   },
+   "por_chip": [
+    {
+     "iou": 0.03441548677118866,
+     "tp": 8697,
+     "fp": 244009,
+     "fn": 0,
+     "union": 252706
+    },
+    {
+     "iou": 0.5495109558105469,
+     "tp": 144051,
+     "fp": 118093,
+     "fn": 0,
+     "union": 262144
+    },
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 262144,
+     "fn": 0,
+     "union": 262144
+    },
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 55761,
+     "fn": 0,
+     "union": 55761
+    },
+    {
+     "iou": 0.015102386474609375,
+     "tp": 3959,
+     "fp": 258185,
+     "fn": 0,
+     "union": 262144
+    },
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 262144,
+     "fn": 0,
+     "union": 262144
+    }
+   ]
+  },
+  "tta": {
+   "agregado": {
+    "n_chips": 6,
+    "global_iou": 0.11547681245177935,
+    "mean_chip_iou": 0.09983813817605748,
+    "median_chip_iou": 0.0075511932373046875,
+    "precision": 0.11547681245177935,
+    "recall": 1.0,
+    "f1": 0.20704475639966968,
+    "iou_undefined": 0,
+    "tp": 156707,
+    "fp": 1200336,
+    "fn": 0
+   },
+   "por_chip": [
+    {
+     "iou": 0.03441548677118866,
+     "tp": 8697,
+     "fp": 244009,
+     "fn": 0,
+     "union": 252706
+    },
+    {
+     "iou": 0.5495109558105469,
+     "tp": 144051,
+     "fp": 118093,
+     "fn": 0,
+     "union": 262144
+    },
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 262144,
+     "fn": 0,
+     "union": 262144
+    },
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 55761,
+     "fn": 0,
+     "union": 55761
+    },
+    {
+     "iou": 0.015102386474609375,
+     "tp": 3959,
+     "fp": 258185,
+     "fn": 0,
+     "union": 262144
+    },
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 262144,
+     "fn": 0,
+     "union": 262144
+    }
+   ]
+  }
+ }
+}

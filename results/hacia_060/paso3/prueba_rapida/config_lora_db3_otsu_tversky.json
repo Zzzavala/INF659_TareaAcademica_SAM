@@ -1,0 +1,176 @@
+{
+ "config": "lora_db3_otsu_tversky",
+ "definicion": {
+  "tipo": "lora",
+  "rep": "db3",
+  "prompts": "otsu",
+  "paso": "3b",
+  "que": "`lora_db3_otsu` con BCE + Tversky (α 0.3, β 0.7) en vez de BCE + Dice"
+ },
+ "semillas": [
+  0
+ ],
+ "protocolo": {
+  "unet": {
+   "base": 32,
+   "epocas": 2,
+   "calentamiento": 2,
+   "lr": 0.001,
+   "wd": 0.0001,
+   "lote": 8,
+   "perdida": "BCE + Dice"
+  },
+  "lora": {
+   "r": 8,
+   "alpha": 16,
+   "epocas": 1,
+   "lr": 0.0001,
+   "lote": 4,
+   "perdida": "BCE + Tversky (a 0.3, b 0.7)"
+  },
+  "umbral": 0.5,
+  "aumentos": "D4 al azar por muestra"
+ },
+ "ensamble": {
+  "individual": {
+   "agregado": {
+    "n_chips": 6,
+    "global_iou": 0.08000747966466171,
+    "mean_chip_iou": 0.07236354585453783,
+    "median_chip_iou": 0.00041023957991467017,
+    "precision": 0.7749335909200676,
+    "recall": 0.08191082721256868,
+    "f1": 0.1481609732730809,
+    "iou_undefined": 0,
+    "tp": 12836,
+    "fp": 3728,
+    "fn": 143871
+   },
+   "por_chip": [
+    {
+     "iou": 0.3672767609539656,
+     "tp": 3311,
+     "fp": 318,
+     "fn": 5386,
+     "union": 9015
+    },
+    {
+     "iou": 0.06608403501343199,
+     "tp": 9520,
+     "fp": 8,
+     "fn": 134531,
+     "union": 144059
+    },
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 421,
+     "fn": 0,
+     "union": 421
+    },
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 387,
+     "fn": 0,
+     "union": 387
+    },
+    {
+     "iou": 0.0008204791598293403,
+     "tp": 5,
+     "fp": 2135,
+     "fn": 3954,
+     "union": 6094
+    },
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 459,
+     "fn": 0,
+     "union": 459
+    }
+   ]
+  },
+  "tta": {
+   "agregado": {
+    "n_chips": 6,
+    "global_iou": 0.07573636092931316,
+    "mean_chip_iou": 0.09409449483661714,
+    "median_chip_iou": 0.00023747328425552126,
+    "precision": 0.913634974014063,
+    "recall": 0.07628248897624229,
+    "f1": 0.1408084056280957,
+    "iou_undefined": 0,
+    "tp": 11954,
+    "fp": 1130,
+    "fn": 144753
+   },
+   "por_chip": [
+    {
+     "iou": 0.5129295869248852,
+     "tp": 4582,
+     "fp": 236,
+     "fn": 4115,
+     "union": 8933
+    },
+    {
+     "iou": 0.05116243552630666,
+     "tp": 7370,
+     "fp": 0,
+     "fn": 136681,
+     "union": 144051
+    },
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 405,
+     "fn": 0,
+     "union": 405
+    },
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 34,
+     "fn": 0,
+     "union": 34
+    },
+    {
+     "iou": 0.0004749465685110425,
+     "tp": 2,
+     "fp": 252,
+     "fn": 3957,
+     "union": 4211
+    },
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 203,
+     "fn": 0,
+     "union": 203
+    }
+   ]
+  }
+ },
+ "chips_valid": [
+  "Ghana_895194",
+  "Ghana_868803",
+  "Ghana_142312",
+  "Ghana_132163",
+  "Ghana_495107",
+  "Ghana_124834"
+ ],
+ "semillas_individual": {
+  "media": 0.08000747966466171,
+  "desv": 0.0,
+  "min": 0.08000747966466171,
+  "max": 0.08000747966466171,
+  "n": 1
+ },
+ "semillas_tta": {
+  "media": 0.07573636092931316,
+  "desv": 0.0,
+  "min": 0.07573636092931316,
+  "max": 0.07573636092931316,
+  "n": 1
+ }
+}

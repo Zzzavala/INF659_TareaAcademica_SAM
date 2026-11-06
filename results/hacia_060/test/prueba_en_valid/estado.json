@@ -1,0 +1,10 @@
+{
+ "inicio": "2026-11-05 14:06:32",
+ "terminado": false,
+ "configs_terminadas": [],
+ "etapa": "valid: unet semilla 2 (individual + TTA)",
+ "actualizado": "2026-11-05 14:10:54",
+ "avance_pct": 100.0,
+ "transcurrido_min": 4.4,
+ "restante_min_aprox": 0.0
+}

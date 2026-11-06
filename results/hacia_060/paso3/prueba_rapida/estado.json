@@ -1,0 +1,21 @@
+{
+ "inicio": "2026-11-05 02:06:46",
+ "terminado": true,
+ "configs_terminadas": [
+  "unet_db3",
+  "lora_db3_otsu_tversky"
+ ],
+ "etapa": "terminado",
+ "detalle": "",
+ "actualizado": "2026-11-05 02:07:36",
+ "avance_pct": 100.0,
+ "transcurrido_min": 0.8,
+ "restante_min_aprox": 0.0,
+ "config_actual": null,
+ "ultimo": {
+  "config": "lora_db3_otsu_tversky",
+  "semilla": 0,
+  "iou_global_valid": 0.08,
+  "iou_global_valid_tta": 0.0757
+ }
+}

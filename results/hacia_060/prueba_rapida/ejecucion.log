@@ -1,0 +1,18 @@
+16:55:31 Rangos fijos en dB (train): vv [-21.7, -4.6], vh [-30.8, -10.9], diff [-0.1, 14.5]
+16:55:35 
+=== Configuración db3_otsu: [VV, VH, VV-VH], rangos fijos en dB · prompts Otsu 3+2 (como H2) ===
+16:55:38   [db3_otsu] lr=0.0001 época  1/2  pérdida 1.7719  IoU train-dev 0.4572
+16:55:38   [db3_otsu] lr=0.0001 época  2/2  pérdida 1.1283  IoU train-dev 0.5881
+16:55:38   [db3_otsu] ELEGIDO en train-dev: lr=0.0001, época 2, umbral 0.3 → IoU train-dev 0.5967
+16:55:41   [db3_otsu] final semilla 0 época  1/2  pérdida 1.8120
+16:55:42   [db3_otsu] final semilla 0 época  2/2  pérdida 0.8389
+16:55:42   [db3_otsu] semilla 0: IoU global VALID 0.0473 (IoU medio 0.1150, precisión 0.962, sensibilidad 0.047)
+16:55:42   [db3_otsu] TERMINADO: IoU global valid 0.0473 ± 0.0000 (0.1 min)
+16:55:43 
+=== Configuración db3_sin: [VV, VH, VV-VH], rangos fijos en dB · sin prompts (embedding por defecto) ===
+16:55:45   [db3_sin] lr=0.0001 época  1/2  pérdida 1.2964  IoU train-dev 0.0000
+16:55:45   [db3_sin] lr=0.0001 época  2/2  pérdida 1.6764  IoU train-dev 0.0000
+16:55:45   [db3_sin] ELEGIDO en train-dev: lr=0.0001, época 1, umbral 0.5 → IoU train-dev 0.0000
+16:55:48   [db3_sin] final semilla 0 época  1/1  pérdida 0.8829
+16:55:48   [db3_sin] semilla 0: IoU global VALID 0.0000 (IoU medio 0.0000, precisión —, sensibilidad 0.000)
+16:55:48   [db3_sin] TERMINADO: IoU global valid 0.0000 ± 0.0000 (0.1 min)

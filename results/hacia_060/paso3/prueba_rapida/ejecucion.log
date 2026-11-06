@@ -1,0 +1,10 @@
+02:06:46 
+=== Paso 3a · unet_db3: U-Net desde cero (base 32), [VV, VH, VV−VH] con rango fijo, BCE + Dice ===
+02:07:20   [unet_db3 s0] época   2/2  pérdida 1.7812  IoU entrenamiento 0.0323  lr 1.00e-03  (0 s)
+02:07:22   [unet_db3 s0] IoU global VALID 0.1155 (con TTA 0.1155) | IoU medio 0.0998 | precisión 0.115 | sensibilidad 1.000 | 0.4 min de entrenamiento
+02:07:22   [unet_db3] TERMINADO: IoU global valid 0.1155 ± 0.0000 (modelo individual) | con TTA 0.1155 | ensamble 0.1155 | ensamble + TTA 0.1155
+02:07:22 
+=== Paso 3b · lora_db3_otsu_tversky: `lora_db3_otsu` con BCE + Tversky (α 0.3, β 0.7) en vez de BCE + Dice ===
+02:07:31   [lora_db3_otsu_tversky s0] época   1/1  pérdida 2.1016  IoU entrenamiento 0.0443  lr 1.00e-04  (5 s)
+02:07:36   [lora_db3_otsu_tversky s0] IoU global VALID 0.0800 (con TTA 0.0757) | IoU medio 0.0724 | precisión 0.775 | sensibilidad 0.082 | 0.1 min de entrenamiento
+02:07:36   [lora_db3_otsu_tversky] TERMINADO: IoU global valid 0.0800 ± 0.0000 (modelo individual) | con TTA 0.0757 | ensamble 0.0800 | ensamble + TTA 0.0757

@@ -1,0 +1,21 @@
+{
+ "regla": "percentiles 1 y 99 de los pixeles con dato del sensor en train, submuestreo 1 de cada 4 filas y columnas",
+ "n_chips": 10,
+ "rangos": {
+  "vv": {
+   "lo": -21.70424880981445,
+   "hi": -4.554353284835808,
+   "mediana": -9.314290046691895
+  },
+  "vh": {
+   "lo": -30.841154098510742,
+   "hi": -10.855195999145502,
+   "mediana": -15.458273887634277
+  },
+  "diff": {
+   "lo": -0.1287127494812012,
+   "hi": 14.545162105560307,
+   "mediana": 6.2232513427734375
+  }
+ }
+}

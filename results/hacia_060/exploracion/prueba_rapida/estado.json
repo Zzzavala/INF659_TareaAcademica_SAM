@@ -1,0 +1,12 @@
+{
+ "inicio": "2026-11-05 16:11:37",
+ "terminado": true,
+ "configs_terminadas": [],
+ "etapa": "terminado",
+ "config_actual": "unet_db3_debil_jrc",
+ "actualizado": "2026-11-05 16:12:48",
+ "avance_pct": 4.8,
+ "transcurrido_min": 1.2,
+ "restante_min_aprox": 23.4,
+ "detalle": "unet_db3_debil_jrc, semilla 0, época 1/1"
+}

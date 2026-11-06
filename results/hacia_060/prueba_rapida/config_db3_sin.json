@@ -1,0 +1,165 @@
+{
+ "config": "db3_sin",
+ "rep": "db3",
+ "prompts": "sin",
+ "descripcion": "[VV, VH, VV-VH], rangos fijos en dB · sin prompts (embedding por defecto)",
+ "protocolo": {
+  "lrs": [
+   0.0001
+  ],
+  "epocas_programa": 2,
+  "calentamiento_epocas": 1,
+  "lote": 4,
+  "weight_decay": 0.01,
+  "umbrales": [
+   0.2,
+   0.3,
+   0.4,
+   0.5,
+   0.6,
+   0.7,
+   0.8
+  ],
+  "semillas": [
+   0
+  ],
+  "perdida": "BCE + Dice",
+  "n_boot": 5000
+ },
+ "barrido": [
+  {
+   "lr": 0.0001,
+   "curva": [
+    {
+     "epoca": 1,
+     "iou_dev": 0.0,
+     "perdida": 1.296437919139862
+    },
+    {
+     "epoca": 2,
+     "iou_dev": 0.0,
+     "perdida": 1.6763951778411865
+    }
+   ],
+   "minutos": 0.006708745161692301,
+   "mejor_epoca": 1,
+   "mejor_iou_dev": 0.0
+  }
+ ],
+ "seleccion": {
+  "lr": 0.0001,
+  "epoca": 1,
+  "umbral": 0.5,
+  "iou_train_dev_umbral_0.5": 0.0,
+  "iou_train_dev": 0.0,
+  "iou_train_dev_por_umbral": {
+   "0.2": 0.0,
+   "0.3": 0.0,
+   "0.4": 0.0,
+   "0.5": 0.0,
+   "0.6": 0.0,
+   "0.7": 0.0,
+   "0.8": 0.0
+  }
+ },
+ "final": {
+  "por_semilla": {
+   "0": {
+    "agregado": {
+     "n_chips": 6,
+     "global_iou": 0.0,
+     "mean_chip_iou": 0.0,
+     "median_chip_iou": 0.0,
+     "precision": null,
+     "recall": 0.0,
+     "f1": 0.0,
+     "iou_undefined": 3,
+     "tp": 0,
+     "fp": 0,
+     "fn": 156707
+    },
+    "iou_global_umbral_0.5": 0.0,
+    "historial": [
+     {
+      "epoca": 1,
+      "perdida_media": 0.8829219142595927,
+      "lr_final": 0.0001,
+      "min": 0.0057149529457092285
+     }
+    ],
+    "minutos": 0.00573272705078125
+   }
+  },
+  "vs_h2": {},
+  "vs_otsu": {},
+  "por_chip": {
+   "0": [
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 0,
+     "fn": 8697,
+     "union": 8697
+    },
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 0,
+     "fn": 144051,
+     "union": 144051
+    },
+    {
+     "iou": null,
+     "tp": 0,
+     "fp": 0,
+     "fn": 0,
+     "union": 0
+    },
+    {
+     "iou": null,
+     "tp": 0,
+     "fp": 0,
+     "fn": 0,
+     "union": 0
+    },
+    {
+     "iou": 0.0,
+     "tp": 0,
+     "fp": 0,
+     "fn": 3959,
+     "union": 3959
+    },
+    {
+     "iou": null,
+     "tp": 0,
+     "fp": 0,
+     "fn": 0,
+     "union": 0
+    }
+   ]
+  },
+  "iou_global": {
+   "media": 0.0,
+   "desv": 0.0,
+   "min": 0.0,
+   "max": 0.0,
+   "n": 1
+  },
+  "iou_medio": {
+   "media": 0.0,
+   "desv": 0.0,
+   "min": 0.0,
+   "max": 0.0,
+   "n": 1
+  }
+ },
+ "chips_valid": [
+  "Ghana_895194",
+  "Ghana_868803",
+  "Ghana_142312",
+  "Ghana_132163",
+  "Ghana_495107",
+  "Ghana_124834"
+ ],
+ "minutos_total": 0.08868972857793173
+}

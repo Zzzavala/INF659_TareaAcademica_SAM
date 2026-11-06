@@ -1,0 +1,2 @@
+14:10:36   [valid] sam: IoU global 0.6145 (ensamble + TTA) | IoU medio 0.3972 | semillas 0.6014 ± 0.0103
+14:10:56   [valid] unet: IoU global 0.6422 (ensamble + TTA) | IoU medio 0.4181 | semillas 0.6375 ± 0.0029

@@ -1,0 +1,15 @@
+18:26:27 
+=== lora_vhdb3_otsu: VH x3, rango fijo en dB · prompts Otsu 3+2 · LoRA r=8 ===
+18:26:36   [lora_vhdb3_otsu s0] época  1/1  pérdida 2.2497  IoU entrenamiento 0.0044  lr 1.00e-04  (2 s)
+18:26:40   [lora_vhdb3_otsu s0] IoU global VALID 0.0778 (con TTA 0.0792) | IoU medio 0.0874 | precisión 0.709 | sensibilidad 0.080 | 0.0 min de entrenamiento
+18:26:41   [lora_vhdb3_otsu] TERMINADO: IoU global valid 0.0778 ± 0.0000 (modelo individual) | con TTA 0.0792 | ensamble 0.0778 | ensamble + TTA 0.0792
+18:26:41 
+=== lora_db3_otsu: [VV, VH, VV-VH], rangos fijos en dB · prompts Otsu 3+2 · LoRA r=8 ===
+18:26:51   [lora_db3_otsu s0] época  1/1  pérdida 2.0925  IoU entrenamiento 0.0036  lr 1.00e-04  (2 s)
+18:26:55   [lora_db3_otsu s0] IoU global VALID 0.1065 (con TTA 0.1032) | IoU medio 0.1031 | precisión 0.649 | sensibilidad 0.113 | 0.0 min de entrenamiento
+18:26:55   [lora_db3_otsu] TERMINADO: IoU global valid 0.1065 ± 0.0000 (modelo individual) | con TTA 0.1032 | ensamble 0.1065 | ensamble + TTA 0.1032
+18:26:56 
+=== lora_vhdb3_sin: VH x3, rango fijo en dB · sin prompts · LoRA r=8 ===
+18:26:58   [lora_vhdb3_sin s0] época  1/1  pérdida 1.4499  IoU entrenamiento 0.0050  lr 1.00e-04  (2 s)
+18:27:03   [lora_vhdb3_sin s0] IoU global VALID 0.0000 (con TTA 0.0000) | IoU medio 0.0000 | precisión — | sensibilidad 0.000 | 0.0 min de entrenamiento
+18:27:03   [lora_vhdb3_sin] TERMINADO: IoU global valid 0.0000 ± 0.0000 (modelo individual) | con TTA 0.0000 | ensamble 0.0000 | ensamble + TTA 0.0000

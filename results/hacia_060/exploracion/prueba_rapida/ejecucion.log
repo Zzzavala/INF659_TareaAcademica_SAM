@@ -1,0 +1,17 @@
+16:11:37 
+=== unet_db3_jrc: E1: U-Net con 4.º canal de agua permanente JRC ===
+16:12:11   [unet_db3_jrc s0] época 1/1  pérdida 1.8420  IoU entrenamiento 0.0254  (18 s)
+16:12:13   [unet_db3_jrc s0] IoU global VALID 0.1155 | IoU medio 0.0998 | P 0.115 R 1.000
+16:12:13   [unet_db3_jrc] TERMINADO: valid 0.1155 ± 0.0000 | ensamble + TTA: valid 0.1155, test 0.1523, bolivia 0.2037
+16:12:13 
+=== unet_db3_debil: E2a: preentrenada con etiquetas débiles crudas ===
+16:12:30   [unet_db3_debil s0 débil] época 1/1  pérdida 1.7492  IoU entrenamiento 0.0580  (2 s)
+16:12:30   [unet_db3_debil s0] época 1/1  pérdida 1.7971  IoU entrenamiento 0.0321  (0 s)
+16:12:31   [unet_db3_debil s0] IoU global VALID 0.1155 | IoU medio 0.0998 | P 0.115 R 1.000
+16:12:32   [unet_db3_debil] TERMINADO: valid 0.1155 ± 0.0000 | ensamble + TTA: valid 0.1155, test 0.1523, bolivia 0.2037
+16:12:32 
+=== unet_db3_debil_jrc: E2b: preentrenada con débiles corregidas con JRC ===
+16:12:47   [unet_db3_debil_jrc s0 débil] época 1/1  pérdida 1.6550  IoU entrenamiento 0.0971  (1 s)
+16:12:47   [unet_db3_debil_jrc s0] época 1/1  pérdida 1.8022  IoU entrenamiento 0.0332  (0 s)
+16:12:48   [unet_db3_debil_jrc s0] IoU global VALID 0.1155 | IoU medio 0.0998 | P 0.115 R 1.000
+16:12:48   [unet_db3_debil_jrc] TERMINADO: valid 0.1155 ± 0.0000 | ensamble + TTA: valid 0.1155, test 0.1523, bolivia 0.2037

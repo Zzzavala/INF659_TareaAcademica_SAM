@@ -180,6 +180,25 @@ En ambas se preentrena 10 épocas con las débiles (misma entrada `db3`, D4, BCE
 
 **Expectativas.** Según Garg et al., E2a no debería mejorar (≈ +0.00) y E2b podría sumar de +0.01 a +0.03. Esperamos que E1 sume algo en chips con ríos o lagos estables (+0.00 a +0.02). En R1, el umbral filtrado debería quedar alrededor de 0.55–0.60 en test, entre Otsu y los modelos.
 
+## 2e. Pre-registro de la validación cruzada por región (R4, exploratorio)
+
+Redactado el **12 de noviembre de 2026 a las 15:15 (hora de Lima), antes de ejecutar**. Motivación y diagnóstico previo en `docs/siguiente_paso_sam_vs_unet.md`.
+
+> **Declaración de IA.** Diseño y código (`tools/validacion_por_region.py`) preparados por Claude Code (Opus 5.5) a pedido del equipo, que debe revisar las expectativas.
+
+* **Pregunta:** ¿SAM con LoRA generaliza mejor que la U-Net a regiones que no vio al entrenar?
+* **Datos:** train y valid juntos, 336 chips de 10 regiones. **Test y Bolivia no se usan.**
+* **Diseño:** 10 pliegues. En cada uno se entrena con 9 regiones y se predice la que quedó fuera.
+* **Modelos:** `lora_db3_otsu` (paso 2) y `unet_db3` (paso 3a) con su configuración ya fijada: misma entrada, mismas épocas, misma tasa de aprendizaje, última época, umbral 0.5, **semilla 0**. Sin búsqueda de hiperparámetros.
+* **Referencias sin entrenamiento:** Otsu por chip y el umbral fijo en VH con mediana 5 × 5, elegido en cada pliegue solo con las 9 regiones de entrenamiento.
+* **Métrica principal:** IoU global sobre los 336 chips, cada uno predicho por el modelo que no vio su región, modelo individual sin TTA. **Secundarias:** lo mismo con TTA; IoU medio por chip; IoU global de cada región.
+* **Pruebas:** diferencia SAM − U-Net con bootstrap pareado por región (principal) y por chip (5 000 remuestreos), y Wilcoxon sobre los 10 IoU de región.
+* **Regla:** se dirá que un modelo generaliza mejor solo si el IC 95 % del bootstrap por región excluye el cero. Si lo incluye, se dirá que no hay evidencia de diferencia.
+* **Análisis secundario fijado ahora:** caída por generalización en los 86 chips de valid, comparando el IoU con región vista (paso 2 y 3a, semilla 0: 0.612 y 0.639) contra el IoU con región no vista de este experimento. Si el preentrenamiento ayuda a generalizar, SAM debería caer menos.
+* **Limitación declarada:** los rangos fijos en dB de la entrada `db3` se calcularon con todo train, así que en cada pliegue incluyen algo de la región que queda fuera. Son 3 percentiles por banda sin etiquetas, y se mantienen para no cambiar los modelos.
+* **Expectativas previas:** incierta. La literatura (sección 5d y la nota) sugiere una ventaja pequeña o nula del modelo preentrenado. Esperamos que la diferencia caiga dentro de ±0.03 y que el IC por región incluya el cero; que SAM caiga algo menos que la U-Net al pasar de región vista a no vista; y que ambos modelos superen al umbral fijo por menos margen que en test.
+* **Costo estimado:** unas 5 horas en la RTX 3070 (19 min de SAM y 11 de U-Net por pliegue).
+
 ## 3. Resultados del paso 1 (se actualiza solo)
 
 <!-- RESULTADOS_PASO1:INICIO (se regenera solo; no editar a mano dentro) -->
@@ -531,6 +550,42 @@ _Actualizado automáticamente: 2026-11-05 18:23_
 
 <!-- RESULTADOS_EXPLORACION:FIN -->
 
+## 3k. Resultados de la validación cruzada por región (R4, pre-registrada en la sección 2e)
+
+Terminó el **13-nov-2026 a las 13:58**: 10 de 10 pliegues, código 0, solo train + valid y semilla 0. Corrió en tres tramos (12-nov 15:35–17:30, 12-nov 21:13–22:19 y 13-nov 11:08–13:58) porque el equipo la pausó dos veces. Cada pliegue se guarda completo y se reutiliza, así que las pausas no cambian nada; Nigeria, cortada a mitad en la primera pausa, se repitió entera. Redactado el 13-nov después de ver los resultados: el punto 1 aplica la regla y el resto es interpretación. Datos en `results/hacia_060/por_region/resumen.json` y figura en `results/figuras/validacion_por_region.png` (`tools/figura_por_region.py`).
+
+| IoU global, región no vista | Chips | SAM + LoRA | U-Net | SAM − U-Net | Umbral fijo VH | Otsu |
+|---|---|---|---|---|---|---|
+| Ghana | 37 | 0.495 | 0.502 | −0.007 | 0.343 | 0.104 |
+| India | 54 | 0.409 | 0.453 | −0.045 | 0.384 | 0.226 |
+| Mekong | 24 | 0.864 | 0.848 | +0.016 | 0.781 | 0.580 |
+| Nigeria | 14 | 0.634 | 0.747 | −0.113 | 0.534 | 0.333 |
+| Pakistan | 22 | 0.363 | 0.310 | +0.053 | 0.255 | 0.132 |
+| Paraguay | 53 | 0.565 | 0.570 | −0.005 | 0.531 | 0.243 |
+| Somalia | 20 | 0.189 | 0.207 | −0.018 | 0.125 | 0.094 |
+| Spain | 24 | 0.702 | 0.714 | −0.012 | 0.665 | 0.278 |
+| Sri-Lanka | 33 | 0.325 | 0.510 | −0.185 | **0.597** | 0.193 |
+| USA | 55 | 0.572 | 0.474 | +0.098 | 0.520 | 0.139 |
+| **Total (336 chips)** | 336 | **0.554** | **0.571** | **−0.017** | 0.512 | 0.228 |
+| Con TTA | | 0.556 | 0.573 | −0.018 | | |
+| IoU medio por chip | | 0.344 | 0.347 | −0.003 | 0.292 | 0.223 |
+
+**1. Lo que dice la regla pre-registrada.** SAM − U-Net = **−0.017, IC 95 % por región [−0.067, +0.029]** (por chip [−0.072, +0.024]; Wilcoxon sobre las 10 regiones p = 0.43, la U-Net gana en 7 y SAM en 3). **El IC incluye el cero: no hay evidencia de que un modelo generalice mejor que el otro a regiones no vistas.** Con TTA da lo mismo (−0.018 [−0.064, +0.028]).
+
+**2. Expectativas previas contra lo observado.**
+
+| Expectativa (sección 2e) | Observado | ¿Se cumplió? |
+|---|---|---|
+| Diferencia dentro de ±0.03 y el IC incluye el cero | −0.017, IC [−0.067, +0.029] | Sí |
+| SAM cae algo menos que la U-Net al pasar de región vista a no vista (86 chips de valid) | SAM 0.612 → 0.587 (−0.025); U-Net 0.639 → 0.584 (−0.055). Diferencia de caídas +0.030, IC por región [−0.001, +0.075] | En la dirección esperada, pero el IC roza el cero: no concluyente |
+| Ambos superan al umbral fijo, por menos margen que en test | SAM +0.042 [−0.037, +0.101]; U-Net +0.059 [+0.011, +0.109]. En test eran +0.059 y +0.083 | Sí, con menos margen; la ventaja de SAM sobre el umbral ya no es concluyente |
+
+**3. Interpretación (no pre-registrada).**
+* **La región pesa mucho más que el modelo.** El IoU va de 0.19 (Somalia) a 0.86 (Mekong) con los dos modelos, mientras que la diferencia entre ellos casi nunca pasa de 0.05. Las dos excepciones grandes son Sri-Lanka (−0.185, donde el umbral fijo supera a ambos) y USA (+0.098 a favor de SAM).
+* **En los chips de valid, la ventaja de la U-Net desaparece fuera de la región.** Con región vista, la U-Net le ganaba a SAM por 0.027. Con región no vista quedan empatados (0.587 contra 0.584). Esto encaja con Bolivia (SAM 0.657, U-Net 0.628), aunque ninguna de las dos señales es concluyente por sí sola.
+* **Conclusión para el informe:** la U-Net gana dentro de las regiones de entrenamiento. Fuera de ellas, los dos modelos son indistinguibles con estos datos, y hay un indicio débil de que SAM pierde menos al cambiar de región. Más parámetros preentrenados no dan una ventaja medible en Sen1Floods11 con Sentinel-1.
+* **Límites:** una sola semilla (en valid, SAM varía ±0.017 entre semillas, así que las diferencias de una región pueden ser ruido de semilla); regiones de 14 a 55 chips; los rangos de dB de la entrada incluyen algo de cada región que queda fuera (sección 2e).
+
 ## 4. Registro cronológico
 
 | Fecha | Qué se hizo | Resultado / decisión |
@@ -555,6 +610,9 @@ _Actualizado automáticamente: 2026-11-05 18:23_
 | 2026-11-05, después de las 18:23 | **El equipo canceló la exploración restante.** Ya no quedan procesos de entrenamiento | E2a y E2b quedan sin resultado. E1, R1 y R2 sí terminaron. No se entrena nada más salvo que surjan cambios tras la reunión con el profesor |
 | 2026-11-05, 21:45 | El equipo consiguió los PDF de DeepSARFlood y Wang et al., y se leyeron completos | Se corrigen las secciones 5, 5b y 5c, y se agrega la 5d. Ningún resultado nuestro cambia |
 | 2026-11-06 | Póster y abstract de WAIMLAp rehechos con los resultados finales y las correcciones de los revisores, con asistencia de Claude Code (Opus 5.5). Figuras con `tools/figuras_poster_waimlap.py`: solo inferencia con los pesos guardados, y cada máscara reproduce el IoU por chip ya guardado | Archivos en `docs/waimlap_2026/`. No se entrenó nada ni se tomó ninguna decisión nueva sobre test |
+| 2026-11-12 | Diagnóstico exploratorio SAM contra U-Net (`tools/diagnostico_sam_vs_unet.py`) y lectura de 7 trabajos más, con asistencia de Claude Code. Solo inferencia sobre train y valid con los modelos ya entrenados; test y Bolivia no se usaron | Los dos modelos encuentran el 97 % del agua oscura en VH y fallan en la que no se ve oscura (37 % del agua). Ninguno memoriza train. Detalle y propuesta de siguiente paso en `docs/siguiente_paso_sam_vs_unet.md`; nada de eso se ha ejecutado |
+| 2026-11-12, 15:15 | Pre-registro de la validación cruzada por región (sección 2e) y lanzamiento (`tools/validacion_por_region.py`) | Pausada por el equipo a las 17:30 (3/10) y a las 22:19 (5/10); los pliegues guardados se reutilizan |
+| 2026-11-13, 13:58 | Validación cruzada por región terminada (10/10, solo train + valid) | SAM 0.554 contra U-Net 0.571 en región no vista: −0.017, IC por región [−0.067, +0.029]. **Sin evidencia de diferencia** según la regla. SAM cae menos al cambiar de región (0.025 contra 0.055), pero no es concluyente (sección 3k) |
 
 ## 5. De dónde salen las ideas
 
